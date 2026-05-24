@@ -32,14 +32,14 @@ jobs:
         pip install allure-pytest
     - name: Test with pytest
       run: |
-        pytest
-    - name: Allure report
-      uses: afiore/action-allure-report@v0.1.0
+        pytest --alluredir=allure-results
+    - name: Generate Allure report
+      uses: jcleigh/allure-single-file-report-action@v1
       with:
-        # Allure test result data dir
-        results-dir: # default is allure-results
-        # Allure report target dir
-        report-dir: # default is allure-report
+        allure_results: allure-results
+        allure_report: allure-report
     - name: Test
       run: |
+        ls
+        cd allure-report
         ls
