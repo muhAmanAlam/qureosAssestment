@@ -34,7 +34,7 @@ jobs:
       run: |
         pytest --alluredir=allure-results
     - name: Generate Allure report
-      uses: jcleigh/allure-single-file-report-action@v1
+      uses: jcleigh/allure-single-file-report-action@v2
       with:
         allure_results: allure-results
         allure_report: allure-report
