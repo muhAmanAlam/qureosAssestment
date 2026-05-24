@@ -6,11 +6,11 @@ name: Python application
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
@@ -43,3 +43,9 @@ jobs:
         ls
         cd allure-report
         ls
+          - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: allure-report
+    - name: Deploy to GitHub Pages
+      uses: actions/deploy-pages@v4
